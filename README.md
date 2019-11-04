@@ -39,7 +39,7 @@ and navigate your browser to `localhost:3000`
 ├── .env                    # environment variables and constant
 ├── next.config.js          # framework settings to support .env
 ├── package.json            # package and npm script configurations
-└── README.md.              # 
+└── README.md               # 
 ```
 
 The folders with `(*)` appended are where you add your new features.
