@@ -4,8 +4,9 @@ This app is made for students to make friends with each other around their campu
 
 ### Setup
 
-Simply clone the project and run:
-
+Simply clone the project
+Copy .env.default to .env and fill in all the configurations
+Run:
 ```shell
 $ npm install
 $ npm run dev
