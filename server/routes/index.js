@@ -6,5 +6,6 @@ router.get('/status', function(req, res) {
 })
 
 router.use('/users', require('./users'))
+router.use('/recommendation', require('./recommendation'))
 
 module.exports = router
