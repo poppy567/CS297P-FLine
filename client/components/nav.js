@@ -1,58 +1,70 @@
 import React from 'react'
 import Link from 'next/link'
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Icon from "@material-ui/core/Icon";
+// @material-ui/icons
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import Explore from "@material-ui/icons/Explore";
+// core components
+import Header from "components/Header/Header.js";
+import Button from "components/CustomButtons/Button.js";
 
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/navbarsStyle.js";
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href='/'>
-          <a>Home</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+const useStyles = makeStyles(styles);
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-        background-color: black;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-        margin: 0;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+// const links = [
+//   { href: 'https://zeit.co/now', label: 'ZEIT' },
+//   { href: 'https://github.com/zeit/next.js', label: 'GitHub' }
+// ].map(link => {
+//   link.key = `nav-link-${link.href}-${link.label}`
+//   return link
+// })
+
+const Nav = () => {
+  const classes = useStyles();
+  return (
+    <Header
+        brand="FLine"
+        color="dark"
+        rightLinks={
+          <List className={classes.list}>
+            <ListItem className={classes.listItem}>
+              <Button
+                href="#pablo"
+                className={classes.navLink + " " + classes.navLinkActive}
+                onClick={e => e.preventDefault()}
+                color="transparent"
+              >
+                <Explore className={classes.icons} /> Courses
+              </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <Button
+                href="/profile"
+                className={classes.navLink}
+                color="transparent"
+              >
+                <AccountCircle className={classes.icons} /> Profile
+              </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <Button
+                href="#pablo"
+                className={classes.navLink}
+                onClick={e => e.preventDefault()}
+                color="transparent"
+              >
+                <Icon className={classes.icons}>settings</Icon> Settings
+              </Button>
+            </ListItem>
+          </List>
+        }
+    />
+  );
+}
 
 export default Nav
